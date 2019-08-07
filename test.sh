@@ -2,15 +2,17 @@
 
 set -eux
 
-echo "using node $(node -v)"
-echo "using npm $(npm -v)"
+node -v
+npm -v
 
-rm migration-engine || true
-rm query-engine || true
+rm migration-engine 2< /dev/null || true
+rm query-engine 2< /dev/null || true
 
-node fetch.js
+DEBUG=* node fetch.js
 
 echo "fetching binaries was successful"
+
+ls
 
 mv query-engine* query-engine
 
@@ -20,7 +22,7 @@ ldd ./migration-engine
 
 # test query-engine
 export PRISMA_DML="$(cat schema.prisma)"
-./query-engine cli --dmmf
+./query-engine cli --dmmf > /dev/null
 
 echo "query-engine succeeded"
 
@@ -33,11 +35,10 @@ actual=$(echo "{}" | ./migration-engine)
 
 # some weird-ass sh variable comparison
 if [ "$actual" != "$expected" ]; then
-  echo "migration-engine failed with error $ret"
+  echo "migration-engine failed with error $actual"
   echo "fail"
   exit 1
 fi
 
 echo "migration-engine succeeded"
-echo "image works without any additional libraries"
 echo "success"

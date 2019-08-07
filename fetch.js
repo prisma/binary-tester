@@ -14,6 +14,12 @@ download({
 	showProgress: false,
 	progressCb: onProgress,
 	version,
+}).then(() => {
+  console.log('download successful')
+}).catch((err) => {
+  console.log('download failed:')
+  console.error(err)
+  process.exit(1)
 })
 
 // onProgress rounds float n to a percentage % 10
