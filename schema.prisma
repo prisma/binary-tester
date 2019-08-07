@@ -1,0 +1,10 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.db"
+  default  = true
+}
+
+model User {
+  id    String  @default(cuid()) @id @unique
+  name  String?
+}

@@ -1,0 +1,11 @@
+{
+  "name": "binary-tester",
+  "version": "0.0.1",
+  "main": "fetch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@prisma/fetch-engine": "^0.1.6"
+  }
+}
