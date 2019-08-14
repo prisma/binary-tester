@@ -1,11 +1,11 @@
 ARG IMAGE
 ARG IMAGE_TARGET=$IMAGE
-ARG FETCH_ENGINE_VERSION=latest
-# TODO temp, use master
-ARG PRISMA_HEAD=af2156a0d0bad794a6d305b3856976702171a9ba
 
 # start the real image and run the test script
 FROM $IMAGE as build
+
+# TODO temp, use master
+ARG PRISMA_HEAD=af2156a0d0bad794a6d305b3856976702171a9ba
 
 WORKDIR /app
 

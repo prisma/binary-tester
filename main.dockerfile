@@ -1,8 +1,9 @@
 ARG IMAGE
-ARG FETCH_ENGINE_VERSION=latest
 
 # using a builder step just so we don't have to run npm i later; this may already prevent some bugs
 FROM node as builder
+
+ARG FETCH_ENGINE_VERSION=latest
 
 WORKDIR /app
 
