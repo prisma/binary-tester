@@ -9,6 +9,12 @@ WORKDIR /app
 RUN node -v
 RUN npm -v
 
+RUN echo "build machine information:" && \
+  lsb_release -a || true && \
+  uname -a || true && \
+  ls /lib/x86_64-linux-gnu | grep libssl || true && \
+  openssl version || true
+
 RUN npm i @prisma/fetch-engine@$FETCH_ENGINE_VERSION
 
 COPY fetch.js schema.prisma ./

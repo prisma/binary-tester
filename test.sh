@@ -5,6 +5,11 @@ set -eux
 node -v
 npm -v
 
+cat /etc/lsb-release || true
+lsb_release -a || true
+uname -v || true
+openssl version || true
+
 rm migration-engine 2< /dev/null || true
 rm query-engine 2< /dev/null || true
 

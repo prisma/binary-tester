@@ -4,7 +4,7 @@
 
 set -eu
 
-images=( "node" "node:alpine" "debian:stretch" "centos:7" "ubuntu:16.04" )
+images=( "node" "node:alpine" "debian:stretch" "centos:7" "ubuntu:14.04" "ubuntu:16.04" "ubuntu:18.04" )
 
 mkdir -p logs/
 
