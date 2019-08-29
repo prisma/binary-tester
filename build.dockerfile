@@ -17,23 +17,23 @@ RUN git clone https://github.com/prisma/prisma.git
 RUN cd prisma && git checkout $PRISMA_HEAD
 RUN cd prisma/server/prisma-rs && ~/.cargo/bin/cargo build --release
 
-RUN echo "build machine information:" && \
-  cat /etc/lsb-release || true && \
-  lsb_release -a || true && \
-  uname -v || true && \
-  ls /lib/x86_64-linux-gnu | grep libssl || true && \
-  openssl version || true
+RUN echo "BUILD: " && cat /etc/lsb-release || true
+RUN echo "BUILD: " && lsb_release -a || true
+RUN echo "BUILD: " && uname -v || true
+RUN echo "BUILD: " && ls -R /lib | grep ssl || true
+RUN echo "BUILD: " && ls -R /usr/lib | grep ssl || true
+RUN echo "BUILD: " && openssl version || true
 
 FROM $IMAGE_TARGET
 
 WORKDIR /app
 
-RUN echo "run machine information:" && \
-  cat /etc/lsb-release || true && \
-  lsb_release -a || true && \
-  uname -v || true && \
-  ls /lib/x86_64-linux-gnu | grep libssl || true && \
-  openssl version || true
+RUN echo "RUN: " && cat /etc/lsb-release || true
+RUN echo "RUN: " && lsb_release -a || true
+RUN echo "RUN: " && uname -v || true
+RUN echo "RUN: " && ls -R /lib | grep ssl || true
+RUN echo "RUN: " && ls -R /usr/lib | grep ssl || true
+RUN echo "RUN: " && openssl version || true
 
 COPY --from=build /app/prisma/server/prisma-rs/target/release/prisma .
 

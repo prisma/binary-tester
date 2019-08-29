@@ -11,13 +11,11 @@ run_image=${run:-$build}
 build_image_name=$(echo $build | tr '/' '-')
 run_image_name=$(echo $run_image | tr '/' '-')
 
-# 1.1 build <image>.build.dockerfile to set up build dependencies.
-docker build -f platforms/$build_image_name.build.dockerfile --build-arg IMAGE=$build_image -t pre_$build_image .
+# 1. build <image>.build.dockerfile to set up build dependencies.
+docker build -f platforms/$build_image_name.build.dockerfile --build-arg IMAGE=$build_image -t base_build_$build_image .
 
-# 2.1 build platform base image where the binary should be `BUILT`, which is required for both build script but also the normal run script (mainly to install nodejs)
-docker build -f platforms/$build_image_name.dockerfile --build-arg IMAGE=pre_$build_image -t base_build_$build_image .
-# 2.2 build the platform base image where the binary should be `RUN`
-docker build -f platforms/$run_image_name.dockerfile --build-arg IMAGE=$run_image -t base_run_$run_image .
+# 2. build the platform base image where the binary should be `RUN`
+docker build -f platforms/$run_image_name.run.dockerfile --build-arg IMAGE=$run_image -t base_run_$run_image .
 
 # cut out the dot so we can tag correctly
 build_tag_name=$(echo $build_image_name | tr ':' '-')
