@@ -23,7 +23,7 @@ if test -f "platforms/$build_image_name.build.dockerfile"; then
   echo "[build] using specific dockerfile platforms/$build_image_name.build.dockerfile"
   docker build -f platforms/$build_image_name.build.dockerfile --build-arg IMAGE=$build_image -t $temp_build_image_name .
 elif test -f "platforms/$build_base_image.build.dockerfile"; then
-  echo "[build] using base dockerfile $build_base_image for $build_image"
+  echo "[build] using base dockerfile platforms/$build_base_image.build.dockerfile for $build_image"
   docker build -f platforms/$build_base_image.build.dockerfile --build-arg IMAGE=$build_image -t $temp_build_image_name .
 else
   echo "[build] no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."
@@ -36,7 +36,7 @@ if test -f "platforms/$run_image_name.run.dockerfile"; then
   echo "[run] using specific dockerfile platforms/$run_image_name.run.dockerfile"
   docker build -f platforms/$run_image_name.run.dockerfile --build-arg IMAGE=$run_image -t $temp_run_image_name .
 elif test -f "platforms/$run_base_image.run.dockerfile"; then
-  echo "[run] using base dockerfile $run_base_image for $run_image"
+  echo "[run] using base dockerfile platforms/$run_base_image.run.dockerfile for $run_image"
   docker build -f platforms/$run_base_image.run.dockerfile --build-arg IMAGE=$run_image -t $temp_run_image_name .
 else
   echo "[run] no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."

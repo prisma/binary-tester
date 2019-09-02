@@ -11,10 +11,10 @@ base_image=$(echo $name | cut -d: -f1)
 temp_run_image_name="base_$i"
 
 if test -f "platforms/$name.test.dockerfile"; then
-  echo "using specific dockerfile $name"
+  echo "using specific dockerfile platforms/$name.test.dockerfile"
   docker build -f platforms/$name.test.dockerfile --build-arg IMAGE=$i -t $temp_run_image_name .
 elif test -f "platforms/$base_image.test.dockerfile"; then
-  echo "using base dockerfile $base_image for $i"
+  echo "using base dockerfile platforms/$base_image.test.dockerfile for $i"
   docker build -f platforms/$base_image.test.dockerfile --build-arg IMAGE=$i -t $temp_run_image_name .
 else
   echo "no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."
