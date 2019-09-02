@@ -178,3 +178,11 @@ success
 
 If you need to adapt some steps of either the build or the run image, just create
 the respective dockerfile.
+
+# Caveats and notes
+
+- The test script/dockerfile needs nodejs to run the actual tests. Running the binary works 
+out of the box because nodejs depends on openssl, installing it automatically. This is great
+for NodeJS/PhotonJS users because they don't need to install OpenSSL separately. However, this
+may lead to confusion and is probably not future proof (Photon for other languages need different 
+solutions).
