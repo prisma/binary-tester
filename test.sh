@@ -1,49 +1,26 @@
 #!/bin/bash
 
+# test.sh tests a given image by launching the docker build and run process with full log output
+
 set -eux
 
-node -v
-npm -v
+name=$(echo $i | tr '/' '-')
+# split by colon to get the base image
+base_image=$(echo $i | cut -d: -f1)
 
-cat /etc/lsb-release || true
-lsb_release -a || true
-uname -v || true
-openssl version || true
+temp_run_image_name="base_$i"
 
-rm migration-engine 2< /dev/null || true
-rm query-engine 2< /dev/null || true
+if test -f "platforms/$name.test.dockerfile"; then
+  echo "using specific dockerfile $name"
+  docker build -f platforms/$name.test.dockerfile --build-arg IMAGE=$i -t $temp_run_image_name .
+elif test -f "platforms/$base_image.test.dockerfile"; then
+  echo "using base dockerfile $base_image for $i"
+  docker build -f platforms/$base_image.test.dockerfile --build-arg IMAGE=$i -t $temp_run_image_name .
+else
+  echo "no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."
+  temp_run_image_name="$base_image"
+fi
 
-DEBUG=* node fetch.js
+docker build -f test.dockerfile --build-arg IMAGE=$temp_run_image_name -t test_$name .
 
-echo "fetching binaries was successful"
-
-ls
-
-mv query-engine* query-engine
-
-# ldd outputs all required libraries, including missing ones for debugging
-ldd ./query-engine
-ldd ./migration-engine
-
-# test query-engine
-export PRISMA_DML="$(cat schema.prisma)"
-./query-engine cli --dmmf > /dev/null
-
-echo "query-engine succeeded"
-
-# this will fail because of an invalid migration
-# we just check if it's this exact error (migaration failed) or a fatal one (e.g. libssl.so.10 not found)
-# expected='{"jsonrpc":"2.0","error":{"code":-32600,"message":"Invalid request"},"id":null}'
-
-# test migration-engine
-# actual=$(echo "{}" | ./migration-engine)
-
-# some weird-ass sh variable comparison
-# if [ "$actual" != "$expected" ]; then
-#   echo "migration-engine failed with error $actual"
-#   echo "fail"
-#   exit 1
-# fi
-
-echo "migration-engine succeeded"
-echo "success"
+docker run test_$name

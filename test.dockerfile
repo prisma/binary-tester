@@ -27,6 +27,6 @@ WORKDIR /app
 
 COPY --from=builder /app /app
 
-COPY test.sh ./
+COPY test-prisma.sh ./
 
-CMD sh test.sh
+CMD sh test-prisma.sh

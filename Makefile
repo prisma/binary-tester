@@ -4,14 +4,14 @@
 spawn:
 	bash spawn.sh $(i)
 
-# run a test and log everything to stdout
-run:
-	bash run.sh $(i)
+# test and log everything to stdout
+test:
+	bash test.sh $(i)
 
 buildall:
-	bash buildall.sh $(i)
+	bash buildall.sh
 
-# run a test and log everything to stdout
+# build binary and run on given images
 build:
 	bash build.sh $(build) $(run)
 

@@ -7,7 +7,7 @@ log="logs/$(echo $i | tr '/' '-').txt"
 start=$(date +%s.%N)
 
 set +e
-make i=$i run > $log 2>&1
+make i=$i test > $log 2>&1
 ret=$?
 set -e
 
