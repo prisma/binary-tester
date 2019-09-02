@@ -4,18 +4,16 @@
 
 set -eu
 
-images=( "ubuntu:14.04" "ubuntu:16.04" "ubuntu:18.04" )
-#images=( "debian:7" "debian:8" "debian:9" )
-#images=( "ubuntu:14.04" "ubuntu:14.10" "ubuntu:16.04" "ubuntu:16.10" "ubuntu:18.04" "ubuntu:18.10" )
+images=( "ubuntu:14.04" "ubuntu:16.04" "ubuntu:18.04" "debian:7" "debian:8" "debian:9" )
 
 mkdir -p logs/
 
 for i in "${images[@]}"
 do
-#  for j in "${images[@]}"
-#  do
-j=$i
-    log="logs/$(echo $i | tr '/' '-')_$(echo $j | tr '/' '-').build.txt"
+  # for j in "${images[@]}"
+  # do
+    j=$i
+    log="logs/$(echo $i | tr '/' '_')-on-$(echo $j | tr '/' '_').build.txt"
 
     start=$(date +%s.%N)
 
@@ -30,9 +28,9 @@ j=$i
     if [ $ret -eq 0 ]; then
       echo "$i->$j $(tput setaf 2)success$(tput sgr0) $diff"
     else
-      echo "$i->$j $(tput setaf 1)fail$(tput sgr0) $diff; please see file://$(pwd)/$log for details"
+      echo "$i->$j $(tput setaf 1)fail$(tput sgr0) $diff; please see $log for details"
     fi
-#  done
+   # done
 done
 
 echo "done"
