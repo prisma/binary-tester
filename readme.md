@@ -13,6 +13,9 @@ $ make i=node test
 [...]
 [...]
 [...]
+./query-engine cli --dmmf
+query-engine succeeded
+migration-engine succeeded
 success
 ```
 
@@ -36,6 +39,9 @@ node:alpine
 ```
 
 Run the following command to see the platform support at a glance:
+
+*NOTE*: Running this will download various images which can take 10s of GBs. Use with caution,
+or better yet, run on a temporary remote server.
 
 ```
 $ make all
