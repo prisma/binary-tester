@@ -18,9 +18,9 @@ elif test -f "platforms/$base_image.dockerfile"; then
   docker build -f platforms/$base_image.dockerfile --build-arg IMAGE=$i -t run_image_name .
 else
   echo "no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."
-  base_image="$base_image"
+  run_image_name="$base_image"
 fi
 
-docker build -f main.dockerfile --build-arg IMAGE=run_image_name -t test_$name .
+docker build -f main.dockerfile --build-arg IMAGE=$run_image_name -t test_$name .
 
 docker run test_$name
