@@ -22,7 +22,7 @@ while read item; do
   fi
 
   # add/remove an ampersand at the end of the next command to execute serially/in parallel
-  make -s i="$i" name="$note" spawn # &
+  make -s i="$i" name="$note" test-spawn # &
 done <all.txt
 
 # wait if run in parallel

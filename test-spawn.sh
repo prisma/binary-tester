@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# spawn.sh launches an instance of a given file, saves logs and outputs success or fail
+# test-spawn.sh launches an instance of a given file, saves logs and outputs success or fail
 
-log="logs/$(echo $i | tr '/' '-').txt"
+log="logs/$(echo $i | tr '/' '_').txt"
 
 start=$(date +%s.%N)
 

@@ -4,9 +4,9 @@
 
 set -eux
 
-name=$(echo $i | tr '/' '-')
+name=$(echo $i | tr '/' '_')
 # split by colon to get the base image
-base_image=$(echo $i | cut -d: -f1)
+base_image=$(echo $name | cut -d: -f1)
 
 temp_run_image_name="base_$i"
 
@@ -18,7 +18,7 @@ elif test -f "platforms/$base_image.test.dockerfile"; then
   docker build -f platforms/$base_image.test.dockerfile --build-arg IMAGE=$i -t $temp_run_image_name .
 else
   echo "no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."
-  temp_run_image_name="$base_image"
+  temp_run_image_name="$i"
 fi
 
 docker build -f test.dockerfile --build-arg IMAGE=$temp_run_image_name -t test_$name .

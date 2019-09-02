@@ -1,8 +1,8 @@
 .PHONY: spawn run build buildall all
 
 # spawn test, output logs to log file and only log success or fail to stdout
-spawn:
-	bash spawn.sh $(i)
+test-spawn:
+	bash test-spawn.sh $(i)
 
 # test and log everything to stdout
 test:
