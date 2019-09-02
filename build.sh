@@ -27,7 +27,7 @@ elif test -f "platforms/$build_base_image.build.dockerfile"; then
   docker build -f platforms/$build_base_image.build.dockerfile --build-arg IMAGE=$build_image -t $temp_build_image_name .
 else
   echo "[build] no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."
-  echo "[build] if you want to customize steps, please create platforms/$build_base_image.build.dockerfile or platforms/$build_image.build.dockerfile."
+  echo "[build] if you want to customize steps, please create platforms/$build_image_name.build.dockerfile or platforms/$build_image_name.build.dockerfile."
   temp_build_image_name="$build_image"
 fi
 
@@ -40,7 +40,7 @@ elif test -f "platforms/$run_base_image.run.dockerfile"; then
   docker build -f platforms/$run_base_image.run.dockerfile --build-arg IMAGE=$run_image -t $temp_run_image_name .
 else
   echo "[run] no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."
-  echo "[run] if you want to customize steps, please create platforms/$run_base_image.run.dockerfile or platforms/$run_image.run.dockerfile."
+  echo "[run] if you want to customize steps, please create platforms/$run_image_name.run.dockerfile or platforms/$run_image_name.run.dockerfile."
   temp_run_image_name="$build_image"
 fi
 
