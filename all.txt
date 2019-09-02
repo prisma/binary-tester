@@ -1,0 +1,27 @@
+node # NodeJS latest
+node:12
+node:10
+node:8
+node:6
+node:alpine
+
+debian:8
+debian:9
+debian:10
+
+centos:6
+centos:7
+
+ubuntu:14.04
+ubuntu:16.04
+ubuntu:18.04
+
+vcatechnology/linux-mint # Linux Mint latest
+vcatechnology/linux-mint:18 # Linux Mint 18
+
+netlify/build
+netlify/build:trusty # Netlify Old Ubuntu 14.04 image
+netlify/build:xenial # Netlify Ubuntu 16.04 image
+
+lambci/lambda
+lambci/lambda:nodejs8.10

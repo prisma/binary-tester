@@ -21,7 +21,7 @@ RUN npm i @prisma/fetch-engine@$FETCH_ENGINE_VERSION
 COPY fetch.js schema.prisma ./
 
 # start the real image and run the test script
-FROM base_$IMAGE
+FROM $IMAGE
 
 WORKDIR /app
 

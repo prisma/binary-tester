@@ -12,10 +12,10 @@ ret=$?
 set -e
 
 end=$(date +%s.%N)
-diff=$(printf '%.*fs' 1 $(echo "$end - $start" | bc))
+diff=$(LC_NUMERIC="en_US.UTF-8" printf '%.*fs' 1 $(echo "$end - $start" | bc))
 
 if [ $ret -eq 0 ]; then
-  echo "$i $(tput setaf 2)success$(tput sgr0) $diff"
+  echo "$i $name $(tput setaf 2)success$(tput sgr0) $diff"
 else
-  echo "$i $(tput setaf 1)fail$(tput sgr0) $diff; please see file://$(pwd)/$log for details"
+  echo "$i $name $(tput setaf 1)fail$(tput sgr0) $diff; please see file://$(pwd)/$log for details"
 fi

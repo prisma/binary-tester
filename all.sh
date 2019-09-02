@@ -4,15 +4,26 @@
 
 set -eu
 
-images=( "node" "node:12" "node:10" "node:8" "node:6" "node:alpine" "debian:9" "debian:8" "centos:7" "ubuntu:14.04" "ubuntu:16.04" "ubuntu:18.04" "ubuntu:14.10" "ubuntu:16.10" "ubuntu:18.10" )
-
 mkdir -p logs/
 
-for i in "${images[@]}"
-do
+while read item; do
+  i=$(echo $item | cut -d# -f1 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+  note=$(echo $item | cut -d# -f2 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+  if [ "$i" = "" ]; then
+    echo ""
+    continue
+  fi
+
+  if [ "$i" = "$note" ]; then
+    note=""
+  else
+    note="($note)"
+  fi
+
   # add/remove an ampersand at the end of the next command to execute serially/in parallel
-  make -s i=$i spawn # &
-done
+  make -s i="$i" name="$note" spawn # &
+done <all.txt
 
 # wait if run in parallel
 wait
