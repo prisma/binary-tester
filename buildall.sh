@@ -4,7 +4,7 @@
 
 set -eu
 
-images=( "ubuntu:14.04" "ubuntu:16.04" "ubuntu:18.04" "debian:7" "debian:8" "debian:9" )
+images=( "ubuntu:14.04" "ubuntu:16.04" "ubuntu:18.04" "debian:7" "debian:8" "debian:9" "debian:10" )
 
 mkdir -p logs/
 

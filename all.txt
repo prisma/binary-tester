@@ -5,6 +5,7 @@ node:8
 node:6
 node:alpine
 
+debian:7
 debian:8
 debian:9
 debian:10
@@ -15,6 +16,11 @@ centos:7
 ubuntu:14.04
 ubuntu:16.04
 ubuntu:18.04
+ubuntu:19.04
+
+fedora:28
+fedora:29
+fedora:30
 
 vcatechnology/linux-mint # Linux Mint latest
 vcatechnology/linux-mint:18 # Linux Mint 18
