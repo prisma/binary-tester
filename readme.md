@@ -3,6 +3,8 @@
 binary-tester helps testing the prisma rust binaries on various platforms. Test
 more platforms with a single command and debug failing platforms more easily.
 
+While this could be fully automated in the future, at this time everything is [tracked manually on Notion](https://www.notion.so/prismaio/Platform-support-dd6b96774c3e4f37ac3661382d4b5849).
+
 ## Basic usage
 
 Test whether photonjs, or more precisely the binary and the binary fetching process,
