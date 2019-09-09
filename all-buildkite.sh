@@ -20,7 +20,8 @@ while read item; do
 
   cmd="$cmd
   - label: '$note'
-    command: make i='$i' name='$note' test"
+    command: make i='$i' test
+    soft_fail: true"
 done <all.txt
 
 echo "steps: $cmd"
