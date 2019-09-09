@@ -33,5 +33,5 @@ netlify/build # :cloud: Netlify Latest
 netlify/build:trusty # :cloud: Netlify Old Ubuntu 14.04 image
 netlify/build:xenial # :cloud: Netlify Ubuntu 16.04 image
 
-lambci/lambda # :lambda: Lambda Latest
-lambci/lambda:nodejs8.10 # :lambda: Lambda 28
+lambci/lambda # :lambda: Lambda Default
+lambci/lambda:nodejs8.10 # :lambda: Lambda NodeJS 8.10
