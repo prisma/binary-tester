@@ -41,4 +41,4 @@ COPY --from=fetcher /app /app
 
 COPY test-run.sh ./
 
-CMD sh test-run.sh
+RUN sh test-run.sh

@@ -39,7 +39,4 @@ fi
 
 docker build --no-cache -f test.dockerfile . \
   --build-arg IMAGE_FETCH=$temp_fetch_image_name \
-  --build-arg IMAGE_RUN=$temp_run_image_name \
-  -t test_$name
-
-docker run test_$name
+  --build-arg IMAGE_RUN=$temp_run_image_name

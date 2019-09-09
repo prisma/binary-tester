@@ -51,8 +51,4 @@ run_tag_name=$(echo $run_image_name | tr ':' '_')
 # 3. build the binary and set up the run image
 docker build --no-cache . -f build.dockerfile \
   --build-arg IMAGE_BUILD=$temp_build_image_name \
-  --build-arg IMAGE_RUN=base_run_$run_image \
-  -t test_$build_tag_name-on-$run_tag_name
-
-# 4. run the binary tests
-docker run test_$build_tag_name-on-$run_tag_name
+  --build-arg IMAGE_RUN=base_run_$run_image

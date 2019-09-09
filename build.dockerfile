@@ -36,6 +36,6 @@ COPY --from=build /app/prisma-engine/target/release/prisma .
 
 COPY schema.prisma .
 
-CMD export PRISMA_DML="$(cat schema.prisma)" && \
+RUN export PRISMA_DML="$(cat schema.prisma)" && \
   ./prisma cli --dmmf > /dev/null && \
   echo "success"
