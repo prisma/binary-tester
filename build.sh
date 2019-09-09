@@ -21,10 +21,10 @@ temp_run_image_name="base_run_$run_image"
 # 1. build <image>.build.dockerfile to set up build dependencies.
 if test -f "platforms/$build_image_name.build.dockerfile"; then
   echo "[build] using specific dockerfile platforms/$build_image_name.build.dockerfile"
-  docker build -f platforms/$build_image_name.build.dockerfile --build-arg IMAGE=$build_image -t $temp_build_image_name .
+  docker build --no-cache -f platforms/$build_image_name.build.dockerfile --build-arg IMAGE=$build_image -t $temp_build_image_name .
 elif test -f "platforms/$build_base_image.build.dockerfile"; then
   echo "[build] using base dockerfile platforms/$build_base_image.build.dockerfile for $build_image"
-  docker build -f platforms/$build_base_image.build.dockerfile --build-arg IMAGE=$build_image -t $temp_build_image_name .
+  docker build --no-cache -f platforms/$build_base_image.build.dockerfile --build-arg IMAGE=$build_image -t $temp_build_image_name .
 else
   echo "[build] no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."
   echo "[build] if you want to customize steps, please create platforms/$build_image_name.build.dockerfile or platforms/$build_image_name.build.dockerfile."
@@ -34,10 +34,10 @@ fi
 # 2. build the platform base image where the binary should run
 if test -f "platforms/$run_image_name.run.dockerfile"; then
   echo "[run] using specific dockerfile platforms/$run_image_name.run.dockerfile"
-  docker build -f platforms/$run_image_name.run.dockerfile --build-arg IMAGE=$run_image -t $temp_run_image_name .
+  docker build --no-cache -f platforms/$run_image_name.run.dockerfile --build-arg IMAGE=$run_image -t $temp_run_image_name .
 elif test -f "platforms/$run_base_image.run.dockerfile"; then
   echo "[run] using base dockerfile platforms/$run_base_image.run.dockerfile for $run_image"
-  docker build -f platforms/$run_base_image.run.dockerfile --build-arg IMAGE=$run_image -t $temp_run_image_name .
+  docker build --no-cache -f platforms/$run_base_image.run.dockerfile --build-arg IMAGE=$run_image -t $temp_run_image_name .
 else
   echo "[run] no custom dockerfile found. note that this often results in errors because dependencies such as node is missing."
   echo "[run] if you want to customize steps, please create platforms/$run_image_name.run.dockerfile or platforms/$run_image_name.run.dockerfile."
@@ -49,7 +49,7 @@ build_tag_name=$(echo $build_image_name | tr ':' '_')
 run_tag_name=$(echo $run_image_name | tr ':' '_')
 
 # 3. build the binary and set up the run image
-docker build . -f build.dockerfile \
+docker build --no-cache . -f build.dockerfile \
   --build-arg IMAGE_BUILD=$temp_build_image_name \
   --build-arg IMAGE_RUN=base_run_$run_image \
   -t test_$build_tag_name-on-$run_tag_name
