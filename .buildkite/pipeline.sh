@@ -1,7 +1,3 @@
 #!/bin/bash
 
-printf "
-steps:
-  - label: 'Test :llama:'
-    command: echo 'test'
-" | buildkite-agent pipeline upload
+make -s all-buildkite | buildkite-agent pipeline upload

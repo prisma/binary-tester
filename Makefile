@@ -1,4 +1,4 @@
-.PHONY: spawn run build buildall all
+.PHONY: spawn run build buildall all all-buildkite
 
 # spawn test, output logs to log file and only log success or fail to stdout
 test-spawn:
@@ -18,3 +18,7 @@ build:
 # run all tests, save outputs to log files and show success/fail
 all:
 	bash all.sh
+
+# run all tests on buildkite
+all-buildkite:
+	bash all-buildkite.sh
