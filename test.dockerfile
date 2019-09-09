@@ -1,4 +1,5 @@
-ARG IMAGE
+ARG IMAGE_FETCH
+ARG IMAGE_RUN
 
 # using a builder step just so we don't have to run npm i later; this may already prevent some bugs
 FROM node as builder
@@ -20,13 +21,24 @@ RUN npm i @prisma/fetch-engine@$FETCH_ENGINE_VERSION
 
 COPY fetch.js schema.prisma ./
 
-# start the real image and run the test script
-FROM $IMAGE
+# start the real image and fetch the script
+FROM $IMAGE_FETCH as fetcher
 
 WORKDIR /app
 
 COPY --from=builder /app /app
 
-COPY test-prisma.sh ./
+COPY test-fetch.sh ./
 
-CMD sh test-prisma.sh
+RUN sh test-fetch.sh
+
+# copy the binary over annd run the real script
+FROM $IMAGE_RUN
+
+WORKDIR /app
+
+COPY --from=fetcher /app /app
+
+COPY test-run.sh ./
+
+CMD sh test-run.sh
