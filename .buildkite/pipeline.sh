@@ -2,6 +2,6 @@
 
 printf "
 steps:
-    - label: Test :llama:
-      command: echo 'test'
+  - label: 'Test :llama:'
+    command: echo 'test'
 " | buildkite-agent pipeline upload
