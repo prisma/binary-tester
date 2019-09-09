@@ -1,33 +1,37 @@
-node # NodeJS latest
-node:12
-node:10
-node:8
-node:6
-node:alpine
+node # :node: NodeJS latest
+node:12 # :node: Node 12
+node:10 # :node: Node 10
+node:8 # :node: Node 8
+node:6 # :node: Node 6
+node:alpine # :node: Alpine Node
 
-debian:7
-debian:8
-debian:9
-debian:10
+debian # :debian: Debian Latest
+debian:7 # :debian: Debian 7
+debian:8 # :debian: Debian 8
+debian:9 # :debian: Debian 9
+debian:10 # :debian: Debian 10
 
-centos:6
-centos:7
+centos # :centos: CentOS Latest
+centos:6 # :centos: CentOS 6
+centos:7 # :centos: CentOS 7
 
-ubuntu:14.04
-ubuntu:16.04
-ubuntu:18.04
-ubuntu:19.04
+ubuntu # :ubuntu: Ubuntu Latest
+ubuntu:14.04 # :ubuntu: Ubuntu 14.04
+ubuntu:16.04 # :ubuntu: Ubuntu 16.04
+ubuntu:18.04 # :ubuntu: Ubuntu 18.04
+ubuntu:19.04 # :ubuntu: Ubuntu 19.04
 
-fedora:28
-fedora:29
-fedora:30
+fedora # :fedora: Fedora Latest
+fedora:28 # :fedora: Fedora 28
+fedora:29 # :fedora: Fedora 29
+fedora:30 # :fedora: Fedora 30
 
-vcatechnology/linux-mint # Linux Mint latest
-vcatechnology/linux-mint:18 # Linux Mint 18
+vcatechnology/linux-mint # :linux: Linux Mint latest
+vcatechnology/linux-mint:18 # :linux: Linux Mint 18
 
-netlify/build
-netlify/build:trusty # Netlify Old Ubuntu 14.04 image
-netlify/build:xenial # Netlify Ubuntu 16.04 image
+netlify/build # :cloud: Netlify Latest
+netlify/build:trusty # :cloud: Netlify Old Ubuntu 14.04 image
+netlify/build:xenial # :cloud: Netlify Ubuntu 16.04 image
 
-lambci/lambda
-lambci/lambda:nodejs8.10
+lambci/lambda # :lambda: Lambda Latest
+lambci/lambda:nodejs8.10 # :lambda: Lambda 28
