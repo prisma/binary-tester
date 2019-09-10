@@ -1,4 +1,4 @@
-# binary-tester
+# binary-tester [![Build status](https://badge.buildkite.com/b0b8963f54169ad79cee4da30dd9c1c9d2da97caafe92a3054.svg)](https://buildkite.com/prisma/binary-testing?branch=master)
 
 binary-tester helps testing the prisma rust binaries on various platforms. Test
 more platforms with a single command and debug failing platforms more easily.
