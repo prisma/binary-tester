@@ -1,8 +1,4 @@
 node # :node: NodeJS latest
-node:12 # :node: Node 12
-node:10 # :node: Node 10
-node:8 # :node: Node 8
-node:6 # :node: Node 6
 node:alpine # :node: Alpine Node
 
 debian # :debian: Debian Latest
@@ -26,6 +22,8 @@ fedora:28 # :fedora: Fedora 28
 fedora:29 # :fedora: Fedora 29
 fedora:30 # :fedora: Fedora 30
 
+archlinux/base # :linux: Arch Linux
+
 vcatechnology/linux-mint # :linux: Linux Mint latest
 vcatechnology/linux-mint:18 # :linux: Linux Mint 18
 
@@ -33,5 +31,4 @@ netlify/build # :cloud: Netlify Latest
 netlify/build:trusty # :cloud: Netlify Old Ubuntu 14.04 image
 netlify/build:xenial # :cloud: Netlify Ubuntu 16.04 image
 
-lambci/lambda # :lambda: Lambda Default
 lambci/lambda:nodejs8.10 # :lambda: Lambda NodeJS 8.10

@@ -1,0 +1,4 @@
+ARG IMAGE
+FROM $IMAGE
+
+USER root
