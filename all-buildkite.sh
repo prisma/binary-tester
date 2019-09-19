@@ -21,7 +21,7 @@ while read -r item; do
 
   cmd="$cmd
   - label: '(direct) $note'
-    command: make i='$i' test
+    command: make i='$i' raw-test
     soft_fail: true"
 done <images.txt
 
@@ -43,7 +43,7 @@ while read -r item; do
 
   cmd="$cmd
   - label: '(full) $note'
-    command: make i='$i' raw-test
+    command: make i='$i' test
     soft_fail: true"
 done <images.txt
 
