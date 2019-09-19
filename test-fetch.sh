@@ -10,9 +10,9 @@ lsb_release -a || true
 uname -v || true
 openssl version || true
 
-rm query-engine 2< /dev/null || true
+rm query-engine || true
 
-DEBUG=* node fetch.js
+DEBUG="*" node fetch.js
 
 ls
 

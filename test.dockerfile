@@ -11,8 +11,7 @@ WORKDIR /app
 RUN node -v
 RUN npm -v
 
-RUN echo "build machine information:" && \
-  lsb_release -a || true && \
+RUN lsb_release -a || true && \
   uname -a || true && \
   ls /lib/x86_64-linux-gnu | grep libssl || true && \
   openssl version || true
@@ -32,7 +31,7 @@ COPY test-fetch.sh ./
 
 RUN sh test-fetch.sh
 
-# copy the binary over annd run the real script
+# copy the binary over and run the real script
 FROM $IMAGE_RUN
 
 WORKDIR /app
