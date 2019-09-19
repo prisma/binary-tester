@@ -1,4 +1,4 @@
-.PHONY: spawn run build buildall all all-buildkite
+.PHONY: spawn test raw-test build buildall all all-buildkite
 
 # spawn test, output logs to log file and only log success or fail to stdout
 test-spawn:
@@ -7,6 +7,14 @@ test-spawn:
 # test and log everything to stdout
 test:
 	bash test.sh $(i)
+
+# test just the binaries
+raw-all:
+	bash raw-all.sh $(i)
+
+# test a single binaries
+raw-test:
+	bash raw-test.sh $(i)
 
 buildall:
 	bash buildall.sh

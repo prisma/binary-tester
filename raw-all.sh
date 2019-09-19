@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# all.sh tests all specified images at once
+# raw-all.sh tests all specified images at once
 
 set -eu
 
@@ -21,11 +21,7 @@ while read item; do
     note="($note)"
   fi
 
-  # add/remove an ampersand at the end of the next command to execute serially/in parallel
-  make -s i="$i" name="$note" test-spawn # &
+  make -s i="$i" name="$note" raw-test
 done <images.txt
-
-# wait if run in parallel
-wait
 
 echo "done"
