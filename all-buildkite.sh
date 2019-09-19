@@ -42,7 +42,7 @@ while read -r item; do
   fi
 
   cmd="$cmd
-  - label: '(fetch-engine) $note'
+  - label: '(full) $note'
     command: make i='$i' raw-test
     soft_fail: true"
 done <images.txt
