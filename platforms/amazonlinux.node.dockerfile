@@ -3,7 +3,7 @@ FROM $IMAGE
 
 USER root
 
-RUN yum -y -q install wget
+RUN yum -q -y install wget tar gzip
 RUN wget http://nodejs.org/dist/v0.10.30/node-v0.10.30-linux-x64.tar.gz
 RUN tar --strip-components 1 -xzvf node-v* -C /usr/local
 RUN npm i -g n
