@@ -31,4 +31,7 @@ netlify/build # :cloud: Netlify Latest
 netlify/build:trusty # :cloud: Netlify Old Ubuntu 14.04 image
 netlify/build:xenial # :cloud: Netlify Ubuntu 16.04 image
 
-lambci/lambda:nodejs8.10 # :lambda: Lambda node 8, Zeit, Netlify functions
+lambci/lambda:nodejs8.10 # :lambda: Lambda node 8, Netlify functions
+
+node:alpine # :small_red_triangle: Zeit v1
+amazonlinux # :small_red_triangle: Zeit v2
