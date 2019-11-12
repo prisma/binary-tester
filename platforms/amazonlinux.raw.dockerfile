@@ -3,4 +3,4 @@ FROM $IMAGE
 
 RUN yum install -y gzip gunzip
 
-ENV URL=https://s3-eu-west-1.amazonaws.com/prisma-native/master/latest/linux-glibc-libssl1.0.1/prisma.gz
+ENV URL=https://prisma-builds.s3-eu-west-1.amazonaws.com/master/latest/rhel-openssl-1.0.x/prisma.gz
