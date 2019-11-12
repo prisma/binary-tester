@@ -21,11 +21,13 @@ migration-engine succeeded
 success
 ```
 
-To hide the verbose output, run `test-spawn` instead:
+## Just test the binaries
 
 ```
-$ make i=node test-spawn
-node success 1.6s
+$ make i=node test-raw
+[...]
+[...]
+success
 ```
 
 ## Testing multiple platforms
@@ -52,7 +54,19 @@ node:12 success 1.6s
 node:alpine fail 2.0s; please see logs/node:alpine.txt for details
 ubuntu:16.04 success 2.2s
 ubuntu:18.04 success 2.0s
-...
+[...]
+```
+
+To just rest the raw binaries:
+
+```
+$ make raw-all
+node success 1.6s
+node:12 success 1.6s
+node:alpine fail 2.0s; please see logs/node:alpine.txt for details
+ubuntu:16.04 success 2.2s
+ubuntu:18.04 success 2.0s
+[...]
 ```
 
 If you want to add more platforms, just add it to `./all.txt` and optionally add a comment:

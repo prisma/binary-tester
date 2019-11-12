@@ -15,15 +15,15 @@ do
     j=$i
     log="logs/$(echo $i | tr '/' '_')-on-$(echo $j | tr '/' '_').build.txt"
 
-    start=$(date +%s.%N)
+    start=$(date "+%s")
 
     set +e
     make build=$i run=$j build > $log 2>&1
     ret=$?
     set -e
 
-    end=$(date +%s.%N)
-    diff=$(LC_NUMERIC="en_US.UTF-8" printf '%.*fs' 1 $(echo "$end - $start" | bc))
+    end=$(date "+%s")
+    diff="$(echo "$end - $start" | bc)s"
 
     if [ $ret -eq 0 ]; then
       echo "$i->$j $(tput setaf 2)success$(tput sgr0) $diff"

@@ -4,25 +4,27 @@
 
 set -eu
 
+cmd="$1"
+
 mkdir -p logs/
 
 while read item; do
-  i=$(echo $item | cut -d# -f1 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+  img=$(echo $item | cut -d# -f1 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
   note=$(echo $item | cut -d# -f2 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
 
-  if [ "$i" = "" ]; then
+  if [ "$img" = "" ]; then
     echo ""
     continue
   fi
 
-  if [ "$i" = "$note" ]; then
+  if [ "$img" = "$note" ]; then
     note=""
   else
     note="($note)"
   fi
 
   # add/remove an ampersand at the end of the next command to execute serially/in parallel
-  make -s i="$i" name="$note" test-spawn # &
+  sh spawn.sh "$cmd" "$img" "$note" # &
 done <images.txt
 
 # wait if run in parallel

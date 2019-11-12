@@ -21,7 +21,7 @@ while read item; do
     note="($note)"
   fi
 
-  make -s i="$i" name="$note" raw-test
+  make -s i="$i" name="$note" $cmd
 done <images.txt
 
 echo "done"

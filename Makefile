@@ -1,31 +1,34 @@
-.PHONY: spawn test raw-test build buildall all all-buildkite
-
-# spawn test, output logs to log file and only log success or fail to stdout
-test-spawn:
-	bash test-spawn.sh $(i)
+.PHONY: test raw-test build all raw-all buildall all-buildkite
 
 # test and log everything to stdout
 test:
-	bash test.sh $(i)
-
-# test just the binaries
-raw-all:
-	bash raw-all.sh $(i)
+	bash test.sh
 
 # test a single binaries
 raw-test:
-	bash raw-test.sh $(i)
+	bash raw-test.sh
 
-buildall:
-	bash buildall.sh
+### build scripts for manual binary compilation testing
 
 # build binary and run on given images
 build:
 	bash build.sh $(build) $(run)
 
-# run all tests, save outputs to log files and show success/fail
+### batch pipelines
+### saves outputs to log files and show success/fail
+
+# run all tests
 all:
-	bash all.sh
+	bash all.sh test
+
+# run all raw tests (test just the binaries)
+raw-all:
+	bash all.sh raw-test
+
+buildall:
+	bash buildall.sh
+
+### CI
 
 # run all tests on buildkite
 all-buildkite:
