@@ -2,7 +2,6 @@ node # :node: NodeJS latest
 node:alpine # :node: Alpine Node, Zeit v1
 
 debian # :debian: Debian Latest & Codesandbox
-debian:7 # :debian: Debian 7
 debian:8 # :debian: Debian 8
 debian:9 # :debian: Debian 9
 debian:10 # :debian: Debian 10
@@ -10,6 +9,7 @@ debian:10 # :debian: Debian 10
 centos # :centos: CentOS Latest
 centos:6 # :centos: CentOS 6
 centos:7 # :centos: CentOS 7
+centos:8 # :centos: CentOS 8
 
 ubuntu # :ubuntu: Ubuntu Latest & Netlify
 ubuntu:14.04 # :ubuntu: Ubuntu 14.04
