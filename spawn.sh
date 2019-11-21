@@ -7,7 +7,9 @@ cmd="$1"
 i="$2"
 name="$3"
 
-log="logs/$(echo "$i" | tr '/' '_').txt"
+log="logs/$cmd/$(echo "$i" | tr '/' '_').txt"
+
+mkdir -p "logs/$cmd"
 
 start=$(date "+%s")
 

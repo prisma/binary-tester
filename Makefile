@@ -14,6 +14,10 @@ raw-test:
 build:
 	bash build.sh $(build) $(run)
 
+# print version info for given image
+version:
+	bash version.sh
+
 ### batch pipelines
 ### saves outputs to log files and show success/fail
 
@@ -24,6 +28,10 @@ all:
 # run all raw tests (test just the binaries)
 raw-all:
 	bash all.sh raw-test
+
+# print versions
+versions:
+	bash all.sh version
 
 buildall:
 	bash buildall.sh
