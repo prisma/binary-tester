@@ -1,5 +1,6 @@
 const { download } = require('@prisma/fetch-engine')
 
+process.env.DEBUG = '*'
 const version = process.env.FETCH_ENGINE_VERSION || 'latest'
 
 console.log('using @prisma/fetch-engine version', version)
