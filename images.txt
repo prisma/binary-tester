@@ -7,7 +7,6 @@ debian:9 # :debian: Debian 9
 debian:10 # :debian: Debian 10
 
 centos # :centos: CentOS Latest
-centos:6 # :centos: CentOS 6
 centos:7 # :centos: CentOS 7
 centos:8 # :centos: CentOS 8
 
