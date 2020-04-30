@@ -15,6 +15,7 @@ ubuntu:14.04 # :ubuntu: Ubuntu 14.04
 ubuntu:16.04 # :ubuntu: Ubuntu 16.04 & Netlify 16.04
 ubuntu:18.04 # :ubuntu: Ubuntu 18.04 & Netlify 18.04
 ubuntu:19.04 # :ubuntu: Ubuntu 19.04
+ubuntu:20.04 # :ubuntu: Ubuntu 20.04
 
 fedora # :fedora: Fedora Latest
 fedora:28 # :fedora: Fedora 28
@@ -27,3 +28,5 @@ vcatechnology/linux-mint # :linux: Linux distro: Mint latest
 
 amazonlinux:1 # :amazon-ec2: Amazon Linux v1, Lambda v1, Netlify functions
 amazonlinux:2 # :amazon-ec2: Amazon Linux 2, Lambda v2, Zeit v2, Netlify functions
+
+alpine # :linux: Alpine
