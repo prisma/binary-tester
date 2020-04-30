@@ -14,7 +14,6 @@ ubuntu # :ubuntu: Ubuntu Latest & Netlify
 ubuntu:14.04 # :ubuntu: Ubuntu 14.04
 ubuntu:16.04 # :ubuntu: Ubuntu 16.04 & Netlify 16.04
 ubuntu:18.04 # :ubuntu: Ubuntu 18.04 & Netlify 18.04
-ubuntu:19.04 # :ubuntu: Ubuntu 19.04
 ubuntu:20.04 # :ubuntu: Ubuntu 20.04
 
 fedora # :fedora: Fedora Latest
