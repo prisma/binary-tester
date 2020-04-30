@@ -21,7 +21,7 @@ RUN lsb_release -a || true && \
 
 RUN npm i @prisma/fetch-engine@$FETCH_ENGINE_VERSION
 
-COPY fetch.js schema.prisma ./
+COPY fetch.js ./
 
 # start the real image and fetch the script
 FROM $IMAGE_FETCH as fetcher

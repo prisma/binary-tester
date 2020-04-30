@@ -6,8 +6,7 @@ set -eux
 ldd ./query-engine
 
 # test query-engine
-export PRISMA_DML="$(cat schema.prisma)"
-./query-engine cli --dmmf > /dev/null
+./query-engine --version
 
 echo "query-engine succeeded"
 
