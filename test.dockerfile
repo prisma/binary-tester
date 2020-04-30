@@ -13,7 +13,7 @@ RUN npm -v
 
 RUN lsb_release -a || true && \
   cat /etc/lsb-release || true && \
-  cat /etc/os-release || true && \
+  cat /etc/alpine-release || true && \
   cat /etc/os-release || true && \
   uname -a || true && \
   ls /lib/x86_64-linux-gnu | grep libssl || true && \

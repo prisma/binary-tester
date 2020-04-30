@@ -6,6 +6,7 @@ node -v
 npm -v
 
 cat /etc/lsb-release || true
+cat /etc/alpine-release || true
 cat /etc/os-release || true
 lsb_release -a || true
 uname -v || true
