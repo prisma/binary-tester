@@ -22,7 +22,7 @@ while read -r item; do
   cmd="$cmd
   - label: '(direct) $note'
     command: make i='$i' raw-test
-    soft_fail: true"
+    soft_fail: false"
 done <images.txt
 
 cmd="$cmd
@@ -44,7 +44,7 @@ while read -r item; do
   cmd="$cmd
   - label: '(full) $note'
     command: make i='$i' test
-    soft_fail: true"
+    soft_fail: false"
 done <images.txt
 
 echo "steps: $cmd"
