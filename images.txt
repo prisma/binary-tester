@@ -17,7 +17,7 @@ ubuntu:18.04 # :ubuntu: Ubuntu 18.04 & Netlify 18.04
 ubuntu:20.04 # :ubuntu: Ubuntu 20.04
 
 fedora # :fedora: Fedora Latest
-fedora:28 # :fedora: Fedora 28
+# fedora:28 # :fedora: Fedora 28 (End Of Life May 2019)
 fedora:29 # :fedora: Fedora 29
 fedora:30 # :fedora: Fedora 30
 
