@@ -3,7 +3,7 @@
 set -eux
 
 # ldd outputs all required libraries, including missing ones for debugging
-ldd ./query-engine
+ldd ./query-engine || true
 
 # test query-engine
 ./query-engine --version
