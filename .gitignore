@@ -2,3 +2,5 @@ node_modules/
 logs/
 migration-engine*
 query-engine*
+introspection-engine*
+prisma-fmt*
